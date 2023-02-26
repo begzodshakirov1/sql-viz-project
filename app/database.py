@@ -1,7 +1,9 @@
 import sqlalchemy
 import sys
+import os
 
-def get_wells(connection_string, depth, gradient):
+def get_wells(depth, gradient):
+    connection_string = os.getenv("DB_URL")
     engine = sqlalchemy.create_engine(connection_string)
     conn = engine.connect()
     
@@ -15,8 +17,7 @@ def get_wells(connection_string, depth, gradient):
 if __name__ == '__main__':
     depth = sys.argv[1]
     gradient = sys.argv[2]
-    cs = sys.argv[3]
 
     print(sys.argv)
 
-    print(get_wells(cs, depth, gradient))
+    print(get_wells(depth, gradient))
