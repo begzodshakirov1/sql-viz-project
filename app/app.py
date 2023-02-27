@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
-from database import get_wells
-from plot import plot_wells
+from app.database import get_wells
+from app.plot import plot_wells
 
 website = Flask(__name__)
 
